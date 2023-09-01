@@ -1,15 +1,17 @@
 package main
 
-import "go-bases/go-bases/clase3/structs"
+import (
+	structs2 "go-bases/01-go-bases/03-clase3/structs"
+)
 
 func main() {
-	person := structs.Person{
+	person := structs2.Person{
 		ID:          123,
 		Name:        "Santi",
 		DateOfBirth: "30-04-1998",
 	}
 
-	employee := structs.Employee{
+	employee := structs2.Employee{
 		Person:   person,
 		Position: "ING",
 		ID:       798,
@@ -17,14 +19,14 @@ func main() {
 
 	employee.PrintEmployee()
 
-	product := structs.Product{
+	product := structs2.Product{
 		ID:          1,
 		Name:        "GO",
 		Price:       100.0,
 		Description: "Lenguaje go",
 		Category:    "Software",
 	}
-	product2 := structs.Product{
+	product2 := structs2.Product{
 		ID:          2,
 		Name:        "Intellij",
 		Price:       100.0,
