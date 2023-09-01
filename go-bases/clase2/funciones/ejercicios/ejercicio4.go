@@ -38,7 +38,7 @@ func EjecutarEjercicio4(notas ...int) {
 func realizarOperacion(operation string) (aplicar func(values ...int) float64, mensaje string) {
 	switch operation {
 	case Maximum:
-		aplicar = minValue
+		aplicar = maxValue
 	case Average:
 		aplicar = averageValue
 	case Minimum:

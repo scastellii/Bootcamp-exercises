@@ -96,19 +96,11 @@ const (
 	cat    = "cat"
 )
 
-
 ...
-
-
 animalDog, msg := animal(dog)
 animalCat, msg := animal(cat)
-
-
 ...
-
-
 var amount float64
 amount += animalDog(10)
 amount += animalCat(10)
-
 */
