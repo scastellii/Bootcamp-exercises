@@ -5,9 +5,9 @@ import (
 	"os"
 )
 
-var Products []Product
+var Products []*Product
 
-func getAllProducts(path string) []Product {
+func GetAllProducts(path string) []*Product {
 	file, err := os.ReadFile(path)
 	if err != nil {
 		return nil
@@ -17,4 +17,8 @@ func getAllProducts(path string) []Product {
 		return nil
 	}
 	return Products
+}
+
+func Save(p Product, contr *ControllerProducts) {
+	contr.Db = append(contr.Db, &p)
 }
