@@ -5,17 +5,18 @@ import (
 	"os"
 )
 
-type Product struct {
-	Id           int     `json:"id"`
-	Name         string  `json:"name"`
-	Quantity     int     `json:"quantity"`
-	Code_value   string  `json:"code_Value"`
-	Is_published bool    `json:"is_Published"`
-	Expiration   string  `json:"expiration"`
-	Price        float64 `json:"price"`
+type Product struct { //aca no hacen falta las etiquetas porque no voy a responder al usuario con esta estructura
+	Id          int     `json:"id"`
+	Name        string  `json:"name"`
+	Quantity    int     `json:"quantity"`
+	CodeValue   string  `json:"code_Value"`
+	IsPublished bool    `json:"is_Published"`
+	Expiration  string  `json:"expiration"`
+	Price       float64 `json:"price"`
 }
 
 var products []Product
+var LastId int = 500
 
 func main() {
 	path := "02-go-web/01-API-tt/products.json"
@@ -36,12 +37,3 @@ func getAllProducts(path string) []Product {
 	}
 	return products
 }
-
-/*
-Ejercicio 2 : Creando un servidor
-Vamos a levantar un servidor en el puerto 8080. Para probar nuestros endpoints haremos uso de postman.
-Crear una ruta /ping que debe respondernos con un string que contenga pong con el status 200 OK.
-Crear una ruta /products que nos devuelva la lista de todos los productos en la slice.
-Crear una ruta /products/:id que nos devuelva un producto por su id.
-Crear una ruta /products/search que nos permita buscar por parámetro los productos cuyo precio sean mayor a un valor priceGt.
-*/
