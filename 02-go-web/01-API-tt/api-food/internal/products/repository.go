@@ -32,9 +32,7 @@ type Repository interface {
 func (c *RepositoryController) GetAll() ([]domain.Product, error) {
 	var result []domain.Product
 	for _, product := range c.Db {
-		result = append(result, *product) //TODO si elimino con el delete, al volver a consultar por todos los prductos me devuelve aca un null pointer.
-		//Pareciera que c.db por más de eliminar mantiene el tamaño y la que elimina queda en nil.
-		//Ver si estoy eliminando mal o si se puede redimensionar el slice.
+		result = append(result, *product)
 	}
 	return result, nil
 }
@@ -96,18 +94,9 @@ func (c *RepositoryController) Update(id int, product *domain.Product) (prod dom
 }
 
 func (c *RepositoryController) Delete(id int) (product domain.Product, err error) {
-	if id == len(c.Db) {
-		for _, prd := range c.Db {
-			if prd.Id == id {
-				c.Db = c.Db[0 : id+1]
-				product = *prd
-				return
-			}
-		}
-	}
-	for _, prd := range c.Db {
+	for i, prd := range c.Db {
 		if prd.Id == id {
-			c.Db = append(c.Db[:id+1], c.Db[id+1+1:]...) //TODO si es el ultimo seguro tenga error out of memory. VERIFICAR
+			c.Db = append(c.Db[:i], c.Db[i+1:]...)
 			product = *prd
 			return
 		}
