@@ -122,7 +122,7 @@ func Test_Post_OK(t *testing.T) {
 		Id:          501,
 		Name:        "Oil - Margarine",
 		Quantity:    439,
-		CodeValue:   "TEST450501",
+		CodeValue:   "TEST4505010",
 		IsPublished: true,
 		Expiration:  "15/12/2021",
 		Price:       50.50,
